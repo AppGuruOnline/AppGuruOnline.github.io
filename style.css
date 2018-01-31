@@ -1,0 +1,230 @@
+/*
+890 - Section padding
+1120 - Title padding
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i|Nunito:900i');
+
+:root {
+    --section-light-overlay-opacity: .8;
+    --section-dark-overlay-opacity: .8;
+    --bg: linear-gradient(transparent,transparent);
+}
+
+body {
+    margin: 0;
+    font-family: 'Nunito Sans';
+}
+
+section {
+    width: 100vw;
+    height: 100vh;
+    
+    background-attachment: fixed;
+    background-size: calc(100vw + 200vh);
+    background-position: center center;
+    background-repeat: no-repeat;
+    
+    font-size: 3vh;
+}
+
+section[light], footer[light] {
+    background-color: #eee;
+}
+
+section[dark], footer[dark] {
+    color: white;
+    background-color: #111;
+}
+
+section[noscroll] {
+    background-size: cover;
+    background-position: center center;
+}
+
+section > div {
+    width: 100vw;
+    height: 100vh;
+    /* background: linear-gradient(rgba(0,0,0,0.4) 0%,transparent 25%, transparent 75%,rgba(0,0,0,0.4) 100%); */
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+section > div > div {
+    padding: 5rem;
+    padding-right: 50vw;
+    width: auto;
+    height: min-content;
+}
+
+
+header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5rem;
+}
+
+header * {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+header nav ul {
+    list-style: none;
+    padding:  0;
+    display:  flex;
+}
+
+header nav li a {
+    color: inherit;
+    text-decoration:  none;
+    margin:  0 1rem;
+}
+
+#hero {
+    background-image: url(img/gilles-lambert-8649.jpg);
+    text-align: center;
+}
+
+#hero > div {
+    align-items: center;
+}
+
+#hero > div > div {
+    padding-right: 5rem;
+}
+
+#hero h1 {
+    font-family: Montserrat;
+    font-size: 8em;
+    line-height: 1em;
+    margin: 0;
+    margin-bottom: .5em;
+}
+
+#hero form {
+    display: flex;
+    justify-content: space-between;
+}
+
+#hero form input, section .cta {
+    font-size: 1em;
+    font-family: inherit;
+    padding: 1rem;
+    border: none;
+    margin: 0 1rem;
+    width: -webkit-fill-available;
+    border-radius: 3px;
+    transition: box-shadow,.5s;
+}
+
+#hero form input:first-child {
+    margin-left: 0;
+}
+
+#hero form input:last-child {
+    margin-right: 0;
+}
+
+#hero form input[type="submit"], section .cta {
+    -webkit-appearance: none;
+    background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+    background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    cursor: pointer;
+}
+
+#hero form input:hover, section .cta:hover, div.link-cards > a:hover, div.slideshow > *:hover {
+    box-shadow: 0 0 5rem 0 #f6d365;
+}
+
+section .cta {
+    text-decoration: none;/* 
+    padding: .5em 1em;
+    border-radius: 1000px; */
+    margin: 1em 0;
+    display: block;
+    width: fit-content;
+}
+
+#who-we-are {
+    background-image: linear-gradient(rgba(255,255,255,var(--section-light-overlay-opacity)),rgba(255,255,255,var(--section-light-overlay-opacity))),url(img/rahul-chakraborty-460018.jpg);
+}
+
+#our-courses {
+    background-color: #eee;
+    background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+    background-image: linear-gradient(rgba(0,0,0,var(--section-dark-overlay-opacity)),rgba(0,0,0,var(--section-dark-overlay-opacity))),url(img/stefan-stefancik-257625.jpg);
+}
+
+section[link-cards] h2, section[slideshow] h2 {
+    font-size: 2em;
+}
+
+section[link-cards] > div, section[slideshow] > div {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+section[link-cards] > div > div, section[slideshow] > div > div {
+    padding-right: 5rem;
+}
+
+div.link-cards, div.slideshow { /* cards wrapper */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+div.link-cards > a, div.slideshow > * { /* cards */
+    width: 15vw;
+    height: 15vw;
+    border-radius: 3px;
+    margin: 0 4vw;
+    padding: 1rem;
+    
+    box-shadow: 0 5px 3rem -8px black;
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),var(--bg),linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    transition: box-shadow,.5s;
+}
+
+div.link-cards > a:hover { /* cards hover */
+    /* background-image: var(--bg),linear-gradient(120deg, #f093fb 0%, #f5576c 100%); */
+}
+
+div.link-cards > a#alistair {
+    --bg: url(img/alistair.jpg); /* Replace when found photo */
+}
+
+div.link-cards > a#colin {
+    --bg: url(img/colin.jpg); /* Replace when found photo */
+}
+
+footer {
+    height: 25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #eee !important;
+    font-weight: bold;
+}
