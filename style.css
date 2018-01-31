@@ -140,7 +140,7 @@ header nav li a {
     cursor: pointer;
 }
 
-#hero form input:hover, section .cta:hover, div.link-cards > a:hover, div.slideshow > *:hover {
+#hero form input:hover, section .cta:hover, div.link-cards > a:hover, div.slideshow > div:hover {
     box-shadow: 0 0 5rem 0 #f6d365;
 }
 
@@ -174,7 +174,7 @@ section[link-cards] > div, section[slideshow] > div {
 }
 
 section[link-cards] > div > div, section[slideshow] > div > div {
-    padding-right: 5rem;
+    padding: 0;
 }
 
 div.link-cards, div.slideshow { /* cards wrapper */
@@ -217,6 +217,50 @@ div.link-cards > a#alistair {
 
 div.link-cards > a#colin {
     --bg: url(img/colin.jpg); /* Replace when found photo */
+}
+
+div.slideshow-wrapper {
+    width: 100vw;
+    height: 75vh;
+    margin-top: calc((75vh - 65vh - 2rem) * -1); /* To fix extra height */
+    overflow: hidden;
+}
+
+div.slideshow {
+    position: relative;
+    width: fit-content;
+    height: inherit;
+    transition: left,1s;
+}
+
+div.slideshow > * {
+    width: 65vw;
+    height: 50vh;
+    transition: all,1s;
+}
+
+div.slideshow > *:first-child {
+    margin-left: calc((100vw - 65vw - 2rem) / 2);
+}
+div.slideshow > *:last-child {
+    margin-right: calc((100vw - 65vw - 2rem) / 2);
+}
+
+.slideshow-bubbles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slideshow-bubbles > * {
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    margin: 0 5px;
+    margin-top: -20px;
+    cursor: pointer;
+    z-index: 1;
 }
 
 footer {

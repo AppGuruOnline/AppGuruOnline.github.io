@@ -1,14 +1,44 @@
 window.onscroll = scroll;
 window.onresize = scroll;
 window.onload = load;
-
+//calc((73vw + 2rem) * 1)
+var slideshowNum = 0;
+var slideshowInterval;
 function load() {
     scroll();
+    initSlideShow();
 }
 
 function scroll(){
     updateHeaderColor();
     scrollSectionBackground();
+}
+
+function initSlideShow() {
+    for(var i = 0; i < document.querySelector('.slideshow').childElementCount; i++) {
+        document.querySelector('.slideshow-bubbles').innerHTML += '<div class="slide-bubble-' + i + '" onclick="clearInterval(slideshowInterval);slideshowInterval = setInterval(function(){moveSlideShow(1)},5000);goToSlideshowSlide(' + i + ')"></div>';
+    }
+    moveSlideShow(0);
+}
+
+function moveSlideShow(dir) {
+    slideshowNum = slideshowNum + dir;
+    if(slideshowNum >= document.querySelector('.slideshow').childElementCount) {
+        slideshowNum = 0;
+    } else if(slideshowNum < 0) {
+        slideshowNum = document.querySelector('.slideshow').childElementCount - 1;
+    }
+    goToSlideshowSlide(slideshowNum);
+}
+
+function goToSlideshowSlide(slide) {
+    slideshowNum = slide;
+    var bubbles = document.querySelectorAll('.slideshow-bubbles > *');
+    for(var i = 0; i < bubbles.length; i++) {
+        bubbles[i].style.background = 'white';
+    }
+    document.querySelector('.slide-bubble-' + slideshowNum).style.background = 'linear-gradient(120deg, #f093fb 0%, #f5576c 100%)';
+    document.querySelector('.slideshow').style.left = 'calc((73vw + 2rem) * ' + (0 - slide) + ')';
 }
 
 function scrollSectionBackground() {
