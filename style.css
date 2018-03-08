@@ -67,12 +67,16 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 5rem;
+    padding: 1.5rem 5rem;
 }
 
 header * {
     margin-top: 0;
     margin-bottom: 0;
+}
+
+header h1 img {
+    height: 2em;
 }
 
 header nav ul {

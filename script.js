@@ -60,12 +60,15 @@ function scrollSectionBackground() {
 function updateHeaderColor(){
     var sections = document.getElementsByTagName('section');
     var header = document.querySelector('header');
+    var logo = document.querySelector('header h1 img');
     for(var i = 0; i < sections.length; i++) {
         if(isOverlapping(header,sections[i])) {
             if(sections[i].hasAttribute('dark')) {
                 header.style.color = 'white';
+                logo.setAttribute('src','img/logo_clipped_white.svg');
             } else {
                 header.style.color = 'black';
+                logo.setAttribute('src','img/logo_clipped_black.svg');
             }
         }
     }
