@@ -82,3 +82,31 @@ function isOverlapping(elem1, elem2) {
         rect1.bottom < rect2.top ||
         rect1.top > rect2.bottom);
 }
+
+function showVideo() {
+    var title = document.querySelector('#hero h1');
+    title.style.marginTop = 'calc(-8rem - 0.5em)';
+    title.style.opacity = 0;
+    
+    var videoElem = document.querySelector('#hero iframe.yt');
+    videoElem.style.height = 315;
+    videoElem.style.width = 560;
+    
+    var videoBtn = document.querySelector('#hero .video-btn');
+    videoBtn.innerHTML = '<span class="icon-back-circle"></span> Go back';
+    videoBtn.setAttribute('href','javascript:hideVideo()');
+}
+
+function hideVideo() {
+    var title = document.querySelector('#hero h1');
+    title.style.marginTop = 0;
+    title.style.opacity = 1;
+    
+    var videoElem = document.querySelector('#hero iframe.yt');
+    videoElem.style.height = 0;
+    videoElem.style.width = 0;
+    
+    var videoBtn = document.querySelector('#hero .video-btn');
+    videoBtn.innerHTML = '<span class="icon-play-circle"></span> Watch the video';
+    videoBtn.setAttribute('href','javascript:showVideo()');
+}

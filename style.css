@@ -148,6 +148,24 @@ header nav li a {
     box-shadow: 0 0 5rem 0 #f6d365;
 }
 
+#hero iframe.yt {
+    height: 0;
+    width: 0;
+}
+
+#hero h1, #hero iframe.yt {
+    transition: all,.75s;
+    transition-timing-function: ease-in-out;
+}
+
+#hero .video-btn {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    font-size: 1.5em;
+    margin: 1em;
+}
+
 section .cta {
     text-decoration: none;/* 
     padding: .5em 1em;
